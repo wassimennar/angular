@@ -1,0 +1,43 @@
+<div class="container">
+    <div>
+    <h2>Modifier un Hotel :</h2>
+    </div>
+    <form >
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Hotel </label>
+    <input readonly type="text" [(ngModel)]="currentHotel.idHotel"
+    name="idHotel" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Hotel</label>
+    <input type="text"[(ngModel)]= "currentHotel.nomHotel"
+    name="nomHotel" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Prix nuiteehotel</label>
+    <input type="number" [(ngModel)]= "currentHotel.prixnuiteeHotel"
+    name="prixnuiteeHotel" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date entre</label>
+            <input type="date" [ngModel]="currentHotel.dateentreHotel | date: 'yyyy-MM-dd'"
+            (ngModelChange)=" currentHotel.dateentreHotel= $event" name="dateentreHotel"
+            class="form-control">
+
+    </div>
+
+ <div class="col-sm-4 col-md-4 col-lg-4">
+    <label >Reservation</label>
+    <select class="form-control form-control-lg" id="idRes" name="idRes" [(ngModel)]="updatedResId">
+        <option *ngFor="let res of reservations" [value]="res.idRes">
+            {{res.nomRes}}
+        </option>
+    </select>
+</div> 
+    
+
+<div class="mt-2">
+<button type="submit" (click)="updateHotel()" class="btn btn-success">Modifer</button>
+</div>
+</form>
+</div>

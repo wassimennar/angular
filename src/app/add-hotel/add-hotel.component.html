@@ -1,0 +1,46 @@
+<div class="container">
+    <div>
+    <h2>Ajouter un hotel :</h2>
+    </div>
+    <form>
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label >ID Hotel </label>
+            <input type="text" [(ngModel)]="newHotel.idHotel"  
+             name="idHotel" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Nom Hotel </label>
+            <input type="text"[(ngModel)]= "newHotel.nomHotel"  
+             name="nomHotel" class="form-control">
+        </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Prix nuitee hotel</label>
+            <input type="number" [(ngModel)]= "newHotel.prixnuiteeHotel"     
+             name="prixnuiteeHotel" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label >Date entre hotel</label>
+            <input type="date" [(ngModel)]= "newHotel.dateentreHotel"    
+              name="dateentreHotel" class="form-control">
+        </div>
+
+         <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Reservation</label>
+            <select class="form-control form-control-lg" id="idRes" name="idRes" [(ngModel)]="newIdRes">
+                <option *ngFor="let res of reservations" [value]="res.idRes">
+                    {{res.nomRes}}
+                </option>
+            </select>
+        </div> 
+
+            <div class="mt-2">
+            <button type="submit" (click)="addHotel()"class="btn btn-success">Ajouter</button>
+            <div>
+                <h3> {{message}}  </h3>
+            </div>
+            </div>
+            </form>
+            </div>

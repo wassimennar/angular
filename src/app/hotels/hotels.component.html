@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+        
+    <table class="table table-striped" >
+    <thead>
+        <tr> <th>Id</th><th>Nom</th> <th>Prixnuitee</th> <th>Dateentre</th>  <th>Reservation </th>  </tr>
+        
+    </thead>
+    <tbody>
+    <tr *ngFor="let hotel of hotels">
+        <td>{{hotel.idHotel}}</td>
+        <td>{{hotel.nomHotel}}</td>
+        <td>{{hotel.prixnuiteeHotel}}</td>
+        <td>{{hotel.dateentreHotel | date:'dd/MM/yyyy' }}</td>
+         <td>{{hotel.reservation.nomRes}}</td> 
+        <td><a class="btn btn-danger" (click)="supprimerHotel(hotel)">Supprimer</a></td>
+        <td><a class="btn btn-success" [routerLink]="['/updateHotel',hotel.idHotel]">Modifier</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
